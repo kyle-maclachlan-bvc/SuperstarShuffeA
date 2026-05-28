@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3607483908597050478}
   - component: {fileID: 4852411537996335934}
   - component: {fileID: 1890326216045914264}
+  - component: {fileID: 4207423417543929713}
   m_Layer: 0
   m_Name: WallPlane_90degree_Inner
   m_TagString: Untagged
@@ -104,3 +105,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HexSnap
   radius: 2
+--- !u!64 &4207423417543929713
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3314967356885169674}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7829034403684238854, guid: b9aa712513056a945a5112adefca1923, type: 3}

@@ -644,6 +644,7 @@ GameObject:
   - component: {fileID: 7419131076473419574}
   - component: {fileID: 133637853554288438}
   - component: {fileID: 2550595198752043084}
+  - component: {fileID: 788911904176779526}
   m_Layer: 0
   m_Name: WallPlane_Internal_180
   m_TagString: Untagged
@@ -744,6 +745,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HexSnap
   radius: 2
+--- !u!64 &788911904176779526
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6781588962411748953}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2356738633409921264, guid: 4cbcb569a271da949b379c60c157e301, type: 3}
 --- !u!1 &7226768364677971221
 GameObject:
   m_ObjectHideFlags: 0

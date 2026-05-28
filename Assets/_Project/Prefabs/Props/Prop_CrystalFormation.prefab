@@ -1092,6 +1092,7 @@ GameObject:
   - component: {fileID: 6902231818289837068}
   - component: {fileID: 6550211573444567842}
   - component: {fileID: 5426131464634305281}
+  - component: {fileID: -8941271579893313891}
   m_Layer: 0
   m_Name: Prop_CrystalFormation
   m_TagString: Untagged
@@ -1196,3 +1197,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HexSnap
   radius: 2
+--- !u!64 &-8941271579893313891
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9135834253695938697}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -9129959923311571964, guid: 328e30bfc28c2ea48a410cbc055091bd, type: 3}

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8997812665245180912}
   - component: {fileID: 988420186335840733}
   - component: {fileID: 2792042596801288310}
+  - component: {fileID: 4754765930038232080}
   m_Layer: 0
   m_Name: Prop_StonePillars
   m_TagString: Untagged
@@ -104,3 +105,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HexSnap
   radius: 2
+--- !u!64 &4754765930038232080
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2506219785226981377}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7630881089240742946, guid: 74baf39ef114ead4b88278fbbe905ce5, type: 3}

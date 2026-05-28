@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 341069964848855168}
   - component: {fileID: 4981388967524039564}
   - component: {fileID: 4645947712446317219}
+  - component: {fileID: -3421080327817380919}
   m_Layer: 0
   m_Name: WallPlane_SupportStructure
   m_TagString: Untagged
@@ -196,6 +197,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HexSnap
   radius: 2
+--- !u!64 &-3421080327817380919
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3732247393601810950}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2272902789234064294, guid: f80249a155ecef942ac3a65ad3d1fdfd, type: 3}
 --- !u!1 &8626467545663569347
 GameObject:
   m_ObjectHideFlags: 0

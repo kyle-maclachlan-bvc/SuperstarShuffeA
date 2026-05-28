@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7818296659510792038}
   - component: {fileID: 8133464911834314246}
   - component: {fileID: -1144394499812875678}
+  - component: {fileID: 3985812499051217909}
   m_Layer: 0
   m_Name: MinecartTrack_120Split
   m_TagString: Untagged
@@ -104,3 +105,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HexSnap
   radius: 2
+--- !u!64 &3985812499051217909
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3588064804961360897}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7706721051246609813, guid: 50842dd77cb2f5b4aa29a7a7239299dc, type: 3}

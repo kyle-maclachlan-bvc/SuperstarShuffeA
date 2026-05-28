@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 589698307249489790}
   - component: {fileID: 1208158232365807229}
   - component: {fileID: 1172160700723009075}
+  - component: {fileID: 2654846345881731832}
   m_Layer: 0
   m_Name: SupportStructure_Top
   m_TagString: Untagged
@@ -105,6 +106,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HexSnap
   radius: 2
+--- !u!64 &2654846345881731832
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5376627135927076800}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6223805655662708492, guid: 9e085daa26de6c04d8cfd34d004fe59c, type: 3}
 --- !u!1 &6583592866854721692
 GameObject:
   m_ObjectHideFlags: 0
