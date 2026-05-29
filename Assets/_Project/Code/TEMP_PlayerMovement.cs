@@ -9,10 +9,14 @@ public class TEMP_PlayerMovement : MonoBehaviour
     [SerializeField] private Transform eyes;
     [SerializeField] private float jumpForce = 12f;
     [SerializeField] private float gravity = -20f;
+    [SerializeField] private Transform cameraPivot;
+    [SerializeField] private float mouseSensitivity = 100f;
     
     private Vector2 moveInput;
+    private Vector2 lookInput;
     private CharacterController controller;
     private float verticalVelocity;
+    private float pitch;
 
     public void Start()
     {
@@ -31,14 +35,13 @@ public class TEMP_PlayerMovement : MonoBehaviour
             verticalVelocity = jumpForce;
     }
 
+    public void OnLook(InputValue value)
+    {
+        lookInput = value.Get<Vector2>();
+    }
+
     private void Update()
     {
-        // Rotation
-        transform.Rotate(
-            Vector3.up,
-            moveInput.x * turnSpeed * Time.deltaTime
-        );
-
         // Forward / Backward movement
         Vector3 movement = transform.forward * moveInput.y * moveSpeed;
 
@@ -53,5 +56,30 @@ public class TEMP_PlayerMovement : MonoBehaviour
         movement.y = verticalVelocity;
 
         controller.Move(movement * Time.deltaTime);
+    }
+
+    private void LateUpdate()
+    {
+        // Horizontal mouse movement
+        transform.Rotate(
+            Vector3.up,
+            lookInput.x * mouseSensitivity * Time.deltaTime
+        );
+
+        // Vertical mouse movement
+        pitch -= lookInput.y * mouseSensitivity * Time.deltaTime;
+
+        pitch = Mathf.Clamp(
+            pitch,
+            -45f,
+            70f
+        );
+        
+        cameraPivot.localRotation =
+            Quaternion.Euler(
+                pitch,
+                0f,
+                0f
+            );
     }
 }
