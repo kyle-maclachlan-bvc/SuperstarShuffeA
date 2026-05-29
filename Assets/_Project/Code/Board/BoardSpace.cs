@@ -1,10 +1,13 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class BoardSpace : MonoBehaviour
 {
     [SerializeField] private int spaceIndex;
+    [SerializeField] private List<BoardSpace> nextSpaces = new();
     
     public int SpaceIndex => spaceIndex;
+    public List<BoardSpace> NextSpaces => nextSpaces;
     
     private void OnDrawGizmos()
     {

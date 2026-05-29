@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class TurnManager : MonoBehaviour
 {
@@ -27,7 +28,9 @@ public class TurnManager : MonoBehaviour
     }*/
 
     [SerializeField] private DiceBlock diceBlock;
-    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private List<PlayerMovement> players;
+    
+    private int currentPlayerIndex = 0;
 
     private void Update()
     {
@@ -42,7 +45,12 @@ public class TurnManager : MonoBehaviour
 
             Debug.Log($"Rolled: {rollValue}");
 
-            playerMovement.MoveSpaces(rollValue);
+            players[currentPlayerIndex].MoveSpaces(rollValue);
+
+            currentPlayerIndex++;
+
+            if (currentPlayerIndex >= players.Count)
+                currentPlayerIndex = 0;
         }
     }
 }
