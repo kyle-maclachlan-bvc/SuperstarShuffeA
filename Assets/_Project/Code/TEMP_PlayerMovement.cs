@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class TEMP_PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float turnSpeed = 180f;
     [SerializeField] private Transform eyes;
     [SerializeField] private float jumpForce = 12f;
     [SerializeField] private float gravity = -20f;
