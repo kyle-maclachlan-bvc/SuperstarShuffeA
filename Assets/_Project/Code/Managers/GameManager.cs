@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class GameManager : MonoBehaviour
     
     public GameState CurrentGameState => currentGameState;
 
+    [Header("Match Settings")]
+    [SerializeField] private int currentTurn = 1;
+    [SerializeField] private int maxTurns = 10;
+    
     private void Awake()
     {
         if (Instance == null)
@@ -31,5 +36,23 @@ public class GameManager : MonoBehaviour
         currentGameState = newState;
         GameEvents.OnGameStateChange?.Invoke(newState);
         Debug.Log(currentGameState.ToString());
+    }
+
+    public void RoundCompleted()
+    {
+        Debug.Log($"Turn {currentTurn} completed");
+
+        if (currentTurn >= maxTurns)
+        {
+            Debug.Log($"Game Over");
+            
+            ChangeGameState(GameState.Results);
+
+            return;
+        }
+
+        currentTurn++;
+        
+        ChangeGameState(GameState.MinigameTutorial);
     }
 }
