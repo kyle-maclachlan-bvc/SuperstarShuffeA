@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        ChangeGameState(GameState.MainMenu);
+        ChangeGameState(GameState.PlayerTurn);
     }
 
     public void ChangeGameState(GameState newState)
