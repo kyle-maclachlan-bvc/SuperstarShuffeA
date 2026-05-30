@@ -39,4 +39,44 @@ public class PlayerController : MonoBehaviour
 
         return false;
     }
+    
+    public bool SelectRightPressed()
+    {
+        if (!ControlsEnabled)
+            return false;
+
+        return Keyboard.current.rightArrowKey.wasPressedThisFrame;
+    }
+
+    public bool SelectDownPressed()
+    {
+        if (!ControlsEnabled)
+            return false;
+
+        return Keyboard.current.downArrowKey.wasPressedThisFrame;
+    }
+    
+    public bool SelectLeftPressed()
+    {
+        if (!ControlsEnabled)
+            return false;
+
+        return Keyboard.current.leftArrowKey.wasPressedThisFrame;
+    }
+
+    public bool SelectUpPressed()
+    {
+        if (!ControlsEnabled)
+            return false;
+
+        return Keyboard.current.upArrowKey.wasPressedThisFrame;
+    }
+
+    public bool ConfirmPressed()
+    {
+        if (!ControlsEnabled)
+            return false;
+
+        return Keyboard.current.enterKey.wasPressedThisFrame;
+    }
 }

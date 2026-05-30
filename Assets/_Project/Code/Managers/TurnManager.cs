@@ -22,7 +22,18 @@ public class TurnManager : MonoBehaviour
         if (playerStates[currentPlayerIndex].CurrentState
             != PlayerState.TakingTurn)
             return;
+        
+        PlayerMovement currentPlayer = players[currentPlayerIndex];
+        PlayerController currentController = playerControllers[currentPlayerIndex];
 
+        if (currentPlayer.IsWaitingForDirection())
+        {
+            HandleIntersectionInput(
+                currentPlayer, currentController);
+
+            return;
+        }
+        
         if (playerControllers[currentPlayerIndex].RollPressed())
         {
             RollDice();
@@ -61,9 +72,52 @@ public class TurnManager : MonoBehaviour
             Debug.Log($"Rolled: {rollValue}");
 
             players[currentPlayerIndex].StartMovingSpaces(rollValue);
-
-            EndTurn();
         }
+
+        private void HandleIntersectionInput(PlayerMovement player, PlayerController controller)
+        {
+            if (controller.SelectRightPressed()
+                &&
+                player.IsDirectionAvailable(
+                    PathDirection.Right))
+            {
+                player.SelectDirection(
+                    PathDirection.Right);
+            }
+
+            if (controller.SelectDownPressed()
+                &&
+                player.IsDirectionAvailable(
+                    PathDirection.Down))
+            {
+                player.SelectDirection(
+                    PathDirection.Down);
+            }
+
+            if (controller.SelectLeftPressed()
+                &&
+                player.IsDirectionAvailable(
+                    PathDirection.Left))
+            {
+                player.SelectDirection(
+                    PathDirection.Left);
+            }
+
+            if (controller.SelectUpPressed()
+                &&
+                player.IsDirectionAvailable(
+                    PathDirection.Up))
+            {
+                player.SelectDirection(
+                    PathDirection.Up);
+            }
+
+            if (controller.ConfirmPressed())
+            {
+                player.ConfirmDirection();
+            }
+        }
+        
 
         private void EndTurn()
         {

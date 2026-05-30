@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -7,6 +8,14 @@ public class PlayerMovement : MonoBehaviour
 
     private int remainingSpaces;
     private BoardSpace pendingIntersection;
+
+    private PathDirection selectedDirection;
+    private bool waitingForConfirmation;
+
+    public bool IsWaitingForDirection()
+    {
+        return movementState == MovementState.WaitingForDirection;
+    }
     
     public BoardSpace CurrentSpace
     {
@@ -24,6 +33,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (movementState != MovementState.WaitingForDirection)
+            return;
+
+        HandleIntersectionInput();
+    }
 
     public void StartMovingSpaces(int spaces)
     {
@@ -79,5 +95,84 @@ public class PlayerMovement : MonoBehaviour
         }
 
         movementState = MovementState.Idle;
+    }
+
+    private void HandleIntersectionInput()
+    {
+        if (Keyboard.current.rightArrowKey.wasPressedThisFrame)
+        {
+            selectedDirection =
+                pendingIntersection.OptionOneDirection;
+
+            Debug.Log(
+                $"Selected {selectedDirection}");
+
+            waitingForConfirmation = true;
+        }
+
+        if (Keyboard.current.downArrowKey.wasPressedThisFrame)
+        {
+            selectedDirection =
+                pendingIntersection.OptionTwoDirection;
+
+            Debug.Log(
+                $"Selected {selectedDirection}");
+
+            waitingForConfirmation = true;
+        }
+
+        if (waitingForConfirmation &&
+            Keyboard.current.enterKey.wasPressedThisFrame)
+        {
+            ConfirmDirection();
+        }
+    }
+
+    public void SelectDirection(PathDirection direction)
+    {
+        selectedDirection = direction;
+        
+        Debug.Log($"Selected Direction: {selectedDirection}");
+    }
+    
+    public bool IsDirectionAvailable(
+        PathDirection direction)
+    {
+        if (pendingIntersection == null)
+            return false;
+
+        return direction ==
+               pendingIntersection.OptionOneDirection
+               ||
+               direction ==
+               pendingIntersection.OptionTwoDirection;
+    }
+    
+    public void ConfirmDirection()
+    {
+        Debug.Log(
+            $"Confirmed {selectedDirection}");
+
+        if (selectedDirection ==
+            pendingIntersection.OptionOneDirection)
+        {
+            currentSpace =
+                pendingIntersection.NextSpaces[0];
+        }
+        else
+        {
+            currentSpace =
+                pendingIntersection.NextSpaces[1];
+        }
+
+        transform.position =
+            currentSpace.transform.position;
+
+        movementState =
+            MovementState.Moving;
+
+        waitingForConfirmation = false;
+
+        ContinueMovement();
     }
 }
