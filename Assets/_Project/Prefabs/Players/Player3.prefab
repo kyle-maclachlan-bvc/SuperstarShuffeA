@@ -124,9 +124,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3580382086186373333}
+  - component: {fileID: 6449729635640151666}
   - component: {fileID: 8221750117817634109}
+  - component: {fileID: 7143851473700896515}
   - component: {fileID: 6169561499783939105}
   - component: {fileID: 3466279697443349022}
+  - component: {fileID: 6648105370453777752}
   m_Layer: 0
   m_Name: Player3
   m_TagString: Untagged
@@ -150,6 +153,18 @@ Transform:
   - {fileID: 2567372936179278061}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 120, z: 0}
+--- !u!114 &6449729635640151666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3174810786678497556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3072ce474fab7a4cac5d93c3aae7767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
 --- !u!114 &8221750117817634109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +177,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c607d9e1217bd4a846e5c0569511af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  currentSpaceIndex: 0
+--- !u!114 &7143851473700896515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3174810786678497556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5cce1db5e9489c44a62840cabe6a6cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerBoardPosition
   currentSpaceIndex: 0
 --- !u!114 &6169561499783939105
 MonoBehaviour:
@@ -190,6 +218,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTurnState
   currentState: 0
+--- !u!114 &6648105370453777752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3174810786678497556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f56ebff18d7ac34bb2c0f5120e1971b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  playerID: 0
 --- !u!1 &6103306929665464803
 GameObject:
   m_ObjectHideFlags: 0

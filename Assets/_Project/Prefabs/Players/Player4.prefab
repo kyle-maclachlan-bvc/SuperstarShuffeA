@@ -9,9 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1264556044569272004}
+  - component: {fileID: 8012500487493777830}
   - component: {fileID: 5372685097800722293}
+  - component: {fileID: 275933894749712193}
   - component: {fileID: 996298056298105165}
   - component: {fileID: 1068303613273696025}
+  - component: {fileID: 6564418182023230892}
   m_Layer: 0
   m_Name: Player4
   m_TagString: Untagged
@@ -35,6 +38,18 @@ Transform:
   - {fileID: 2668793381566154727}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 120, z: 0}
+--- !u!114 &8012500487493777830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4379656958025067816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3072ce474fab7a4cac5d93c3aae7767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
 --- !u!114 &5372685097800722293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,6 +62,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c607d9e1217bd4a846e5c0569511af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  currentSpaceIndex: 0
+--- !u!114 &275933894749712193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4379656958025067816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5cce1db5e9489c44a62840cabe6a6cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerBoardPosition
   currentSpaceIndex: 0
 --- !u!114 &996298056298105165
 MonoBehaviour:
@@ -75,6 +103,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerTurnState
   currentState: 0
+--- !u!114 &6564418182023230892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4379656958025067816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f56ebff18d7ac34bb2c0f5120e1971b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  playerID: 0
 --- !u!1 &4399419246591176702
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class TurnManager : MonoBehaviour
     [SerializeField] private DiceBlock diceBlock;
     [SerializeField] private List<PlayerMovement> players;
     [SerializeField] private List<PlayerTurnState> playerStates;
+    [SerializeField] private List<PlayerController> playerControllers;
     [SerializeField] private CameraController cameraController;
     
     private int currentPlayerIndex = 0;
@@ -22,7 +23,7 @@ public class TurnManager : MonoBehaviour
             != PlayerState.TakingTurn)
             return;
 
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (playerControllers[currentPlayerIndex].RollPressed())
         {
             RollDice();
         }
@@ -36,10 +37,14 @@ public class TurnManager : MonoBehaviour
             {
                 playerStates[i].CurrentState =
                     PlayerState.Waiting;
+
+                playerControllers[i].DisableControls();
             }
 
             playerStates[currentPlayerIndex].CurrentState =
                 PlayerState.TakingTurn;
+            
+            playerControllers[currentPlayerIndex].EnableControls();
 
             cameraController.FocusPlayer(
                 players[currentPlayerIndex].transform);

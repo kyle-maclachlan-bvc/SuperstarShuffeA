@@ -1,8 +1,11 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private int playerID;
     public bool ControlsEnabled { get; private set; }
+    public int PlayerID => playerID;
 
     public void EnableControls()
     {
@@ -12,5 +15,28 @@ public class PlayerController : MonoBehaviour
     public void DisableControls()
     {
         ControlsEnabled = false;
+    }
+
+    public bool RollPressed()
+    {
+        if (!ControlsEnabled)
+            return false;
+
+        switch (playerID)
+        {
+            case 1:
+                return Keyboard.current.qKey.wasPressedThisFrame;
+            
+            case 2:
+                return Keyboard.current.wKey.wasPressedThisFrame;
+            
+            case 3:
+                return Keyboard.current.eKey.wasPressedThisFrame;
+            
+            case 4:
+                return Keyboard.current.rKey.wasPressedThisFrame;
+        }
+
+        return false;
     }
 }
