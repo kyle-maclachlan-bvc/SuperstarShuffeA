@@ -2,26 +2,82 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private int currentSpaceIndex = 0;
+    [SerializeField] private BoardSpace currentSpace;
+    [SerializeField] private MovementState movementState = MovementState.Idle;
 
-    public int CurrentSpaceIndex
+    private int remainingSpaces;
+    private BoardSpace pendingIntersection;
+    
+    public BoardSpace CurrentSpace
     {
-        get => currentSpaceIndex;
-        set => currentSpaceIndex = value;
+        get => currentSpace;
+        set => currentSpace = value;
     }
 
-    public void MoveSpaces(int spaces)
+    public MovementState CurrentMovementState => movementState;
+
+    private void Start()
     {
-        currentSpaceIndex += spaces;
-        
-        BoardSpace targetSpace =
-            BoardManager.Instance.GetSpace(currentSpaceIndex);
+        if (currentSpace != null)
+        {
+            transform.position = currentSpace.transform.position;
+        }
+    }
 
-        if (targetSpace == null)
-            return;
 
-        transform.position = targetSpace.transform.position;
-        
-        Debug.Log($"Moved to Spcae {currentSpaceIndex}");
+    public void StartMovingSpaces(int spaces)
+    {
+        movementState = MovementState.Moving;
+
+        remainingSpaces = spaces;
+
+        ContinueMovement();
+    }
+
+    public void ContinueMovement()
+    {
+        BoardSpace targetSpace = currentSpace;
+
+        while (remainingSpaces > 0)
+        {
+            if (targetSpace.NextSpaces.Count == 0)
+            {
+                Debug.LogWarning(
+                    $"Space {targetSpace.SpaceIndex} has no Next Spaces assigned");
+
+                break;
+            }
+
+            targetSpace = targetSpace.NextSpaces[0];
+
+            remainingSpaces--;
+
+            currentSpace = targetSpace;
+
+            transform.position =
+                currentSpace.transform.position;
+
+            Debug.Log(
+                $"Moved to Space {currentSpace.SpaceIndex}");
+
+            if (currentSpace.SpaceType ==
+                SpaceType.Intersection)
+            {
+                pendingIntersection = currentSpace;
+
+                movementState =
+                    MovementState.WaitingForDirection;
+
+                Debug.Log(
+                    $"Reached Intersection {currentSpace.SpaceIndex}");
+
+                Debug.Log(
+                    $"Remaining Spaces: {remainingSpaces}");
+
+                return;
+            }
+        }
+
+        movementState = MovementState.Idle;
     }
 }

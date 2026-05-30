@@ -60,7 +60,7 @@ public class TurnManager : MonoBehaviour
 
             Debug.Log($"Rolled: {rollValue}");
 
-            players[currentPlayerIndex].MoveSpaces(rollValue);
+            players[currentPlayerIndex].StartMovingSpaces(rollValue);
 
             EndTurn();
         }
